@@ -1,0 +1,41 @@
+{
+  "name": "Release Tags Protection",
+  "target": "tag",
+  "source_type": "Repository",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "refs/tags/v*.*.*"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "required_signatures"
+    },
+    {
+      "type": "required_linear_history"
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "required_status_checks": [
+          {
+            "context": "Coverage",
+            "integration_id": 15368
+          }
+        ],
+        "strict_required_status_checks_policy": false
+      }
+    }
+  ],
+  "bypass_actors": []
+}
