@@ -88,7 +88,7 @@ async def run_all_commands(gh_path: Path) -> None:
 
     # Example condition and variables - replace these with actual logic
     organisation = "{{ organisation }}"
-    project_name = "{% include pathjoin('includes', 'project_slug.jinja') %}"
+    project_name = "{{ project_slug }}"
     rules_directory = Path("github_protection_ruleset")
 
     await asyncio.gather(
