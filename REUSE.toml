@@ -39,7 +39,8 @@ SPDX-License-Identifier = "MIT-0"
 ## Project configuration
 
 [[annotations]]
-path = "tox.ini"
+path = ".python-versions"
+precedence = "override"
 SPDX-FileCopyrightText = "© 2024 The Whiteprints Authors <whiteprints@pm.me>"
 SPDX-License-Identifier = "MIT-0"
 
