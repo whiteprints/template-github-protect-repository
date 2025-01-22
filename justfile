@@ -73,7 +73,7 @@ uvx args="":
 # Remove the test repository
 delete-repostitory python license:
     -gh repo delete --yes "\
-        whiteprints-tests/test-gh-pypi\
+        whiteprints-tests/test-gh-prot\
         {{ if license == '' { '-' }  else { prepend('-', append('-', kebabcase(license))) } }}\
         {{ os() }}-$(echo {{ python }} | tr -d .)\
     "
@@ -87,7 +87,7 @@ test python license: (venv "test" python license) (delete-repostitory python lic
         --force \
         https://github.com/whiteprints/template-python.git \
         '{{ justfile_directory() }}/.just/test/{{ license }}/{{ python }}/tmp' \
-        --data project_name='test gh-pypi {{ kebabcase(license) }} {{ os() }} {{ python }}' \
+        --data project_name='test gh-prot {{ kebabcase(license) }} {{ os() }} {{ python }}' \
         --data author='Romain Brault' \
         --data organisation='whiteprints-tests' \
         --data author_email='mail@romainbrault.com' \
@@ -115,13 +115,6 @@ test python license: (venv "test" python license) (delete-repostitory python lic
         --vcs-ref HEAD \
         '{{ justfile_directory() }}' \
         '{{ justfile_directory() }}/.just/test/{{ license }}/{{ python }}/tmp'\
-    "
-    @just uvx "\
-        --directory '\
-            {{ justfile_directory() }}/\
-            .just/test/{{ license }}/{{ python }}/tmp\
-        ' \
-        --from rust-just just all\
     "
 
 test-open-source python:
